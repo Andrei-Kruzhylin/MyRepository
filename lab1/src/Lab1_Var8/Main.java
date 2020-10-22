@@ -14,6 +14,9 @@ public class Main {
             } else
             if (parts[0].equals("Apple")) {
                 breakfast[itemsSoFar] = new Apple(parts[1]);
+            }else
+            if (parts[0].equals("Chewing Gum")) {
+                breakfast[itemsSoFar] = new ChewingGum(parts[1]);
             }
             itemsSoFar++;
         }
