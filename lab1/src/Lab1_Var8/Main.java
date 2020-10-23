@@ -20,6 +20,41 @@ public class Main {
             }
             itemsSoFar++;
         }
+
+        int NumbOfApple = 0;
+        int NumbOfCheese = 0;
+        int NumbOfChewingGum = 0;
+
+        Apple checkApple = new Apple("Большое");
+        Cheese checkCheese = new Cheese();
+        ChewingGum checkChewingGum = new ChewingGum("Мята");
+
+        for (Food count: breakfast )
+        {
+            if (count!=null)
+            {
+                if (count.equals(checkApple))
+                {
+                    NumbOfApple++;
+                }
+                if (count.equals(checkCheese))
+                {
+                    NumbOfCheese++;
+                }
+                if (count.equals(checkChewingGum))
+                {
+                    NumbOfChewingGum++;
+                }
+            }
+        }
+
+        System.out.print("Яблок съедено: ");
+        System.out.println(NumbOfApple);
+        System.out.print("Сыра съедено: ");
+        System.out.println(NumbOfCheese);
+        System.out.print("Жевательных резинок съедено: ");
+        System.out.println(NumbOfChewingGum);
+
         System.out.print("Продуктов съедено: ");
         System.out.println(itemsSoFar);
         for (Food item: breakfast)
