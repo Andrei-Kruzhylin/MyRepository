@@ -53,7 +53,7 @@ public class MainFrame extends JFrame {
             addRadioButton("Формула 2", 2);
             radioButtons.setSelected(radioButtons.getElements().nextElement().getModel(),true);
             hboxFormulaType.add(Box.createHorizontalGlue());
-            hboxFormulaType.setBorder(BorderFactory.createLineBorder(Color.YELLOW));
+            /*hboxFormulaType.setBorder(BorderFactory.createLineBorder(Color.YELLOW));*/
 
             JLabel labelForX = new JLabel("X:");
             textFieldX = new JTextField("0", 10);
@@ -65,7 +65,7 @@ public class MainFrame extends JFrame {
             textFieldZ = new JTextField("0", 10);
             textFieldZ.setMaximumSize(textFieldZ.getPreferredSize());
             Box hboxVariables = Box.createHorizontalBox();
-            hboxVariables.setBorder(BorderFactory.createLineBorder(Color.RED));
+            /*hboxVariables.setBorder(BorderFactory.createLineBorder(Color.RED));*/
             hboxVariables.add(Box.createHorizontalStrut(20));
             hboxVariables.add(labelForX);
             hboxVariables.add(Box.createHorizontalStrut(10));
@@ -89,7 +89,7 @@ public class MainFrame extends JFrame {
             hboxResult.add(Box.createHorizontalStrut(10));
             hboxResult.add(textFieldResult);
             hboxResult.add(Box.createHorizontalGlue());
-            hboxResult.setBorder(BorderFactory.createLineBorder(Color.BLUE));
+            /*hboxResult.setBorder(BorderFactory.createLineBorder(Color.BLUE));*/
 
             JButton buttonCalc = new JButton("Вычислить");
             buttonCalc.addActionListener(new ActionListener() {
@@ -129,7 +129,7 @@ public class MainFrame extends JFrame {
             hboxButtons.add(Box.createHorizontalStrut(30));
             hboxButtons.add(buttonReset);
             hboxButtons.add(Box.createHorizontalGlue());
-            hboxButtons.setBorder(BorderFactory.createLineBorder(Color.GREEN));
+            /*hboxButtons.setBorder(BorderFactory.createLineBorder(Color.GREEN));*/
 
             
             JButton buttonSumP = new JButton("M+");
@@ -154,7 +154,7 @@ public class MainFrame extends JFrame {
             hboxButtonsS.add(Box.createHorizontalStrut(30));
             hboxButtonsS.add(buttonSumC);
             hboxButtonsS.add(Box.createHorizontalGlue());
-            hboxButtonsS.setBorder(BorderFactory.createLineBorder(Color.GREEN));
+            /*hboxButtonsS.setBorder(BorderFactory.createLineBorder(Color.ORANGE));*/
 
             Box contentBox = Box.createVerticalBox();
             contentBox.add(Box.createVerticalGlue());
