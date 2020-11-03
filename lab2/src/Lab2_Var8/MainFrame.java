@@ -16,6 +16,7 @@ public class MainFrame extends JFrame {
         private JTextField textFieldY;
         private JTextField textFieldZ;
         private JTextField textFieldResult;
+        Double sum = 0.0;
 
         private ButtonGroup radioButtons = new ButtonGroup();
         private Box hboxFormulaType = Box.createHorizontalBox();
@@ -35,7 +36,6 @@ public class MainFrame extends JFrame {
             button.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
                     MainFrame.this.formulaId = formulaId;
-                    /*ImagePane.updateUI();*/
                 }
             });
             radioButtons.add(button);
@@ -66,7 +66,7 @@ public class MainFrame extends JFrame {
             textFieldZ.setMaximumSize(textFieldZ.getPreferredSize());
             Box hboxVariables = Box.createHorizontalBox();
             hboxVariables.setBorder(BorderFactory.createLineBorder(Color.RED));
-            hboxVariables.add(Box.createHorizontalGlue());
+            hboxVariables.add(Box.createHorizontalStrut(20));
             hboxVariables.add(labelForX);
             hboxVariables.add(Box.createHorizontalStrut(10));
             hboxVariables.add(textFieldX);
@@ -78,7 +78,7 @@ public class MainFrame extends JFrame {
             hboxVariables.add(labelForZ);
             hboxVariables.add(Box.createHorizontalStrut(10));
             hboxVariables.add(textFieldZ);
-            hboxVariables.add(Box.createHorizontalGlue());
+            hboxVariables.add(Box.createHorizontalStrut(20));
 
             JLabel labelForResult = new JLabel("Результат:");
             textFieldResult = new JTextField("0", 10);
@@ -131,18 +131,42 @@ public class MainFrame extends JFrame {
             hboxButtons.add(Box.createHorizontalGlue());
             hboxButtons.setBorder(BorderFactory.createLineBorder(Color.GREEN));
 
+            
+            JButton buttonSumP = new JButton("M+");
+            buttonSumP.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    sum += Double.parseDouble(textFieldResult.getText());
+                    textFieldResult.setText(sum.toString());
+                    }
+                }
+            );
+
+            JButton buttonSumC = new JButton("MC");
+            buttonReset.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    sum = 0.0;
+                }
+            });
+
+            Box hboxButtonsS = Box.createHorizontalBox();
+            hboxButtonsS.add(Box.createHorizontalGlue());
+            hboxButtonsS.add(buttonSumP);
+            hboxButtonsS.add(Box.createHorizontalStrut(30));
+            hboxButtonsS.add(buttonSumC);
+            hboxButtonsS.add(Box.createHorizontalGlue());
+            hboxButtonsS.setBorder(BorderFactory.createLineBorder(Color.GREEN));
+
             Box contentBox = Box.createVerticalBox();
             contentBox.add(Box.createVerticalGlue());
             contentBox.add(hboxFormulaType);
             contentBox.add(hboxVariables);
+            contentBox.add(hboxButtonsS);
             contentBox.add(hboxResult);
             contentBox.add(hboxButtons);
             contentBox.add(Box.createVerticalGlue());
             getContentPane().add(contentBox, BorderLayout.CENTER);
-
         }
 
-        
     public static void main(String[] args) {
         MainFrame frame = new MainFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
