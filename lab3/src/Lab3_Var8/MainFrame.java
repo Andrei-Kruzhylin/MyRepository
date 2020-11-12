@@ -170,8 +170,8 @@ public class MainFrame extends JFrame {
         buttonReset.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent ev) {
                 textFieldFrom.setText("0.0");
-                textFieldTo.setText("1.0");
-                textFieldStep.setText("0.1");
+                textFieldTo.setText("0.0");
+                textFieldStep.setText("0.0");
                 hBoxResult.removeAll();
                 hBoxResult.add(new JPanel());
                 saveToTextMenuItem.setEnabled(false);
