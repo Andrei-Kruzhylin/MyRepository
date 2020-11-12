@@ -44,7 +44,7 @@ public class GornerTableModel extends AbstractTableModel{
         } else {
             Double result = 0.0;
             for(int i=0;i<coefficients.length;i++){
-                result+=coefficients[i]*Math.pow(x, coefficients.length-i-1);
+                result=(result*x+coefficients[i]);
             }
             return result;
         }

@@ -31,13 +31,15 @@ import javax.swing.JTextField;
 @SuppressWarnings("serial")
 public class MainFrame extends JFrame {
 
-    private static final int WIDTH = 700;
-    private static final int HEIGHT = 500;
+    private static final int WIDTH = 800;
+    private static final int HEIGHT = 600;
     private Double[] coefficients;
     private JFileChooser fileChooser = null;
     private JMenuItem saveToTextMenuItem;
     private JMenuItem saveToGraphicsMenuItem;
     private JMenuItem searchValueMenuItem;
+    private JMenuItem HelpAboutMenuItem;
+    private AboutProgramFrame APframe=new AboutProgramFrame();
     private JTextField textFieldFrom;
     private JTextField textFieldTo;
     private JTextField textFieldStep;
@@ -45,18 +47,24 @@ public class MainFrame extends JFrame {
     private GornerTableCellRenderer renderer = new GornerTableCellRenderer();
     private GornerTableModel data;
 
+
     public MainFrame(Double[] coefficients) {
-        super("Табулирование многочлена на отрезке по схеме Горнера");
+        super("Лаб 3: Табулирование многочлена на отрезке по схеме Горнера");
         this.coefficients = coefficients;
         setSize(WIDTH, HEIGHT);
         Toolkit kit = Toolkit.getDefaultToolkit();
         setLocation((kit.getScreenSize().width - WIDTH)/2, (kit.getScreenSize().height - HEIGHT)/2);
+
         JMenuBar menuBar = new JMenuBar();
         setJMenuBar(menuBar);
         JMenu fileMenu = new JMenu("Файл");
         menuBar.add(fileMenu);
         JMenu tableMenu = new JMenu("Таблица");
         menuBar.add(tableMenu);
+        JMenu helpMenu = new JMenu("Справка");
+        menuBar.add(helpMenu);
+
+
         Action saveToTextAction = new AbstractAction("Сохранить в текстовый файл") {
             public void actionPerformed(ActionEvent ev) {
                 if (fileChooser == null) {
@@ -93,6 +101,13 @@ public class MainFrame extends JFrame {
                 getContentPane().repaint();
             }
         };
+
+        Action ABOUT = new AbstractAction("О программе"){
+            public void actionPerformed(ActionEvent ev) {
+                APframe.setVisible(true);
+            }
+        };
+        HelpAboutMenuItem = helpMenu.add(ABOUT);
 
         searchValueMenuItem = tableMenu.add(searchValueAction);
         searchValueMenuItem.setEnabled(false);
