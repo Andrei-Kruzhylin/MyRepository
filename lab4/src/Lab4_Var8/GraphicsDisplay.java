@@ -123,10 +123,15 @@ public class GraphicsDisplay extends JPanel {
 
     protected void paintMarkers(Graphics2D canvas) {
         canvas.setStroke(markerStroke);
-        canvas.setColor(Color.RED);
+
         for (Double[] point : graphicsData) {
             GeneralPath path = new GeneralPath();
             Point2D.Double center = xyToPoint(point[0], point[1]);
+            canvas.setColor(Color.RED);
+            if (unorderedValues(point[1]) )
+            {
+                canvas.setColor(Color.GREEN);			//инеаче - синий
+            }
             path.append(new Line2D.Double(center.getX() - 5.5, center.getY() - 0.0, center.getX() + 5.5, center.getY() - 0.0), true);
             path.append(new Line2D.Double(center.getX() + 5.5, center.getY() - 0.0, center.getX() + 0.0, center.getY() - 0.0), true);
             path.append(new Line2D.Double(center.getX() + 0.0, center.getY() - 5.5, center.getX() + 0.0, center.getY() + 5.5), true);
@@ -137,6 +142,26 @@ public class GraphicsDisplay extends JPanel {
             path.append(new Line2D.Double(center.getX() + 5.5, center.getY() - 5.5, center.getX() + 0.0, center.getY() - 0.0), true);
             canvas.draw(path);
         }
+    }
+
+    boolean unorderedValues(double value)
+    {
+        double average = 0.0;
+        double prev = 0.0;
+        double now;
+        int numbers = 1;
+        for (Double[] point : graphicsData) {
+            now = point[1];
+            if (now > prev) {
+                average += point[1];
+                numbers++;
+            }
+            prev = now;
+        }
+        average /= numbers;
+        if (value > 2*average) {return true;}
+        else{return false;}
+
     }
 
     protected void paintAxis(Graphics2D canvas) {
