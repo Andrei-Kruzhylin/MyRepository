@@ -1,7 +1,6 @@
 package Lab3_Var8;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
@@ -137,7 +136,7 @@ public class MainFrame extends JFrame {
         hboxRange.add(Box.createHorizontalGlue());
         hboxRange.setPreferredSize(new Dimension(new Double(hboxRange.getMaximumSize().getWidth()).intValue(),
                                 new Double(hboxRange.getMinimumSize().getHeight()).intValue()*2));
-        getContentPane().add(hboxRange, BorderLayout.NORTH);
+        getContentPane().add(hboxRange, BorderLayout.SOUTH);
         JButton buttonCalc = new JButton("Вычислить");
         buttonCalc.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent ev) {
@@ -189,7 +188,7 @@ public class MainFrame extends JFrame {
         hboxButtons.add(Box.createHorizontalGlue());
         hboxButtons.setPreferredSize(new Dimension(new Double(hboxButtons.getMaximumSize().getWidth()).intValue(),
                 new Double(hboxButtons.getMinimumSize().getHeight()).intValue()*2));
-        getContentPane().add(hboxButtons, BorderLayout.SOUTH);
+        getContentPane().add(hboxButtons, BorderLayout.NORTH);
         hBoxResult = Box.createHorizontalBox();
         hBoxResult.add(new JPanel());
         getContentPane().add(hBoxResult, BorderLayout.CENTER);

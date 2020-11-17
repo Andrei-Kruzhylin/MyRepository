@@ -56,7 +56,7 @@ public class GornerTableModel extends AbstractTableModel{
             }
             result = Math.round(result*10e5)/10e5;
             double dr = Double.parseDouble(result.toString().split("\\.")[1]);
-            System.out.print(dr);
+            //System.out.print(dr);
             if(dr%2 == 0) {
                 return false;
             }

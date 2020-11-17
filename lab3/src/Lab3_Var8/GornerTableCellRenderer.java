@@ -26,7 +26,7 @@ public class GornerTableCellRenderer implements TableCellRenderer {
     public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int col) {
         String formattedDouble = formatter.format(value);
         label.setText(formattedDouble);
-        if (col==1 && needle!=null && needle.equals(formattedDouble)) {
+        if (col==0 && needle!=null && needle.equals(formattedDouble)) {
             panel.setBackground(Color.RED);
         } else {
             panel.setBackground(Color.WHITE);
