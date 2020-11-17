@@ -36,7 +36,7 @@ public class GraphicsDisplay extends JPanel {
     public GraphicsDisplay() {
         setBackground(Color.WHITE);
         graphicsStroke = new BasicStroke(2.0f, BasicStroke.CAP_BUTT,
-                BasicStroke.JOIN_ROUND, 10.0f, null, 0.0f);
+                BasicStroke.JOIN_ROUND, 10.0f, new float[] {4, 1, 2, 1, 2, 1, 4, 1, 1}, 0.0f);
         axisStroke = new BasicStroke(2.0f, BasicStroke.CAP_BUTT,
                 BasicStroke.JOIN_MITER, 10.0f, null, 0.0f);
         markerStroke = new BasicStroke(1.0f, BasicStroke.CAP_BUTT,
@@ -80,14 +80,12 @@ public class GraphicsDisplay extends JPanel {
         double scaleY = getSize().getHeight() / (maxY - minY);
         scale = Math.min(scaleX, scaleY);
         if (scale == scaleX) {
-            double yIncrement = (getSize().getHeight() / scale - (maxY -
-                    minY)) / 2;
+            double yIncrement = (getSize().getHeight() / scale - (maxY - minY)) / 2;
             maxY += yIncrement;
             minY -= yIncrement;
         }
         if (scale == scaleY) {
-            double xIncrement = (getSize().getWidth() / scale - (maxX -
-                    minX)) / 2;
+            double xIncrement = (getSize().getWidth() / scale - (maxX - minX)) / 2;
             maxX += xIncrement;
             minX -= xIncrement;
         }
@@ -126,14 +124,18 @@ public class GraphicsDisplay extends JPanel {
     protected void paintMarkers(Graphics2D canvas) {
         canvas.setStroke(markerStroke);
         canvas.setColor(Color.RED);
-        canvas.setPaint(Color.RED);
         for (Double[] point : graphicsData) {
-            Ellipse2D.Double marker = new Ellipse2D.Double();
+            GeneralPath path = new GeneralPath();
             Point2D.Double center = xyToPoint(point[0], point[1]);
-            Point2D.Double corner = shiftPoint(center, 3, 3);
-            marker.setFrameFromCenter(center, corner);
-            canvas.draw(marker);
-            canvas.fill(marker);
+            path.append(new Line2D.Double(center.getX() - 5.5, center.getY() - 0.0, center.getX() + 5.5, center.getY() - 0.0), true);
+            path.append(new Line2D.Double(center.getX() + 5.5, center.getY() - 0.0, center.getX() + 0.0, center.getY() - 0.0), true);
+            path.append(new Line2D.Double(center.getX() + 0.0, center.getY() - 5.5, center.getX() + 0.0, center.getY() + 5.5), true);
+            path.append(new Line2D.Double(center.getX() + 0.0, center.getY() + 5.5, center.getX() + 0.0, center.getY() + 0.0), true);
+            path.append(new Line2D.Double(center.getX() - 5.5, center.getY() - 5.5, center.getX() + 5.5, center.getY() + 5.5), true);
+            path.append(new Line2D.Double(center.getX() + 5.5, center.getY() + 5.5, center.getX() + 0.0, center.getY() + 0.0), true);
+            path.append(new Line2D.Double(center.getX() - 5.5, center.getY() + 5.5, center.getX() + 5.5, center.getY() - 5.5), true);
+            path.append(new Line2D.Double(center.getX() + 5.5, center.getY() - 5.5, center.getX() + 0.0, center.getY() - 0.0), true);
+            canvas.draw(path);
         }
     }
 
