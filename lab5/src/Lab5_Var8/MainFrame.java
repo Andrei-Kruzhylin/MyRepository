@@ -9,6 +9,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.JCheckBoxMenuItem;
@@ -87,24 +88,24 @@ public class MainFrame extends JFrame {
     protected void openGraphics(File selectedFile) {
         try {
             DataInputStream in = new DataInputStream(new FileInputStream(selectedFile));
-            Double[][] graphicsData = new Double[in.available()/(Double.SIZE/8)/2][];
-            int i = 0;
-            while (in.available()>0) {
-            Double x = in.readDouble();
-            Double y = in.readDouble();
-            graphicsData[i++] = new Double[] {x, y};
+            ArrayList<Double[]> graphicsData = new ArrayList<Double[]>(50);
+            while (in.available() > 0) {
+                Double x = in.readDouble();
+                Double y = in.readDouble();
+                graphicsData.add(new Double[]{x, y});
             }
-            if (graphicsData!=null && graphicsData.length>0) {
-            fileLoaded = true;
-            display.showGraphics(graphicsData);
+            if (graphicsData.size() > 0) {
+                this.fileLoaded = true;
+                /*this.resetGraphicsMenuItem.setEnabled(true);*/
+                this.display.displayGraphics(graphicsData);
             }
-            in.close();
-        } catch (FileNotFoundException ex) {
-            JOptionPane.showMessageDialog(MainFrame.this, "Указанный файл не найден", "Ошибка загрузки данных", JOptionPane.WARNING_MESSAGE);
+        }
+        catch (FileNotFoundException ex) {
+            JOptionPane.showMessageDialog(this, "\u0423\u043a\u0430\u0437\u0430\u043d\u043d\u044b\u0439 \u0444\u0430\u0439\u043b \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d", "\u041e\u0448\u0438\u0431\u043a\u0430 \u0437\u0430\u0433\u0440\u0443\u0437\u043a\u0438 \u0434\u0430\u043d\u043d\u044b\u0445", 2);
             return;
-        } catch (IOException ex) {
-            JOptionPane.showMessageDialog(MainFrame.this, "Ошибка чтения координат точек из файла", "Ошибка загрузки данных",
-            JOptionPane.WARNING_MESSAGE);
+        }
+        catch (IOException ex) {
+            JOptionPane.showMessageDialog(this, "\u041e\u0448\u0438\u0431\u043a\u0430 \u0447\u0442\u0435\u043d\u0438\u044f \u043a\u043e\u043e\u0440\u0434\u0438\u043d\u0430\u0442 \u0442\u043e\u0447\u0435\u043a \u0438\u0437 \u0444\u0430\u0439\u043b\u0430", "\u041e\u0448\u0438\u0431\u043a\u0430 \u0437\u0430\u0433\u0440\u0443\u0437\u043a\u0438 \u0434\u0430\u043d\u043d\u044b\u0445", 2);
             return;
         }
     }
