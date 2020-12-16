@@ -1,5 +1,5 @@
 package Lab5_Var8;
-
+//Не мой уровень(Это B, мой A)
 
 import java.awt.BorderLayout;
 import java.awt.Toolkit;
