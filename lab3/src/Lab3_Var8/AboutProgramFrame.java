@@ -22,7 +22,7 @@ public class AboutProgramFrame extends JFrame {
         Box hBoxData=Box.createVerticalBox();
         hBoxData.add(Box.createVerticalGlue());
 
-        JLabel Name= new JLabel("Автор: Кружилин Андрей");
+        JLabel Name= new JLabel("Автор: Кружилин Андрей Игоревич");
         JLabel Group= new JLabel("Группа: 7");
         hBoxData.add(Name);
         hBoxData.add(Group);
