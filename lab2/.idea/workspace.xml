@@ -20,12 +20,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="21452306-9592-4e7f-8a2d-1b42d0562bf8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/lab2/Lab2_Var8/MainFrame$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab2/Lab2_Var8/MainFrame$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/lab2/Lab2_Var8/MainFrame$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab2/Lab2_Var8/MainFrame$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/lab2/Lab2_Var8/MainFrame$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab2/Lab2_Var8/MainFrame$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/lab2/Lab2_Var8/MainFrame$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab2/Lab2_Var8/MainFrame$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/lab2/Lab2_Var8/MainFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab2/Lab2_Var8/MainFrame.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Lab2_Var8/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Lab2_Var8/MainFrame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -53,7 +47,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../lab3" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -93,6 +87,7 @@
       <workItem from="1605178787670" duration="6000" />
       <workItem from="1605194768076" duration="91000" />
       <workItem from="1605194914248" duration="19000" />
+      <workItem from="1608197609625" duration="37000" />
     </task>
     <servers />
   </component>
