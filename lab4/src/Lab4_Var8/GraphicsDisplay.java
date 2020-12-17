@@ -130,7 +130,7 @@ public class GraphicsDisplay extends JPanel {
             canvas.setColor(Color.RED);
             if (unorderedValues(point[1]) )
             {
-                canvas.setColor(Color.GREEN);			//инеаче - синий
+                canvas.setColor(Color.GREEN);
             }
             path.append(new Line2D.Double(center.getX() - 5.5, center.getY() - 0.0, center.getX() + 5.5, center.getY() - 0.0), true);
             path.append(new Line2D.Double(center.getX() + 5.5, center.getY() - 0.0, center.getX() + 0.0, center.getY() - 0.0), true);
